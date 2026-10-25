@@ -1,5 +1,5 @@
-// FSR 노트 서비스워커 — 빌드 202610210236-9d64
-const CACHE = "fsrhub-202610210236-9d64";
+// FSR 노트 서비스워커 — 빌드 202610250551-505c
+const CACHE = "fsrhub-202610250551-505c";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/icon-180.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
